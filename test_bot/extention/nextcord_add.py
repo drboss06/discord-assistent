@@ -4,7 +4,6 @@ from traceback import format_exc
 from typing import Dict, List, Optional, Union
 import environs
 import os
-
 import nextcord
 from nextcord.ext import commands
 from nextcord.voice_recording import (

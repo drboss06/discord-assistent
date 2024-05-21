@@ -34,17 +34,17 @@ bot = commands.Bot()
 @bot.event
 async def on_ready():
     print(f"Logged in as {bot.user}")
-    task_loop.start()
+    #task_loop.start()
     
 
 
-@tasks.loop(seconds=5)
-async def task_loop():
-    if is_connect_channel:
-        interaction = nextcord.Interaction()
-        while True:
-            start_recording(interaction)
-            await asyncio.sleep(5)
+# @tasks.loop(seconds=5)
+# async def task_loop():
+#     if is_connect_channel:
+#         interaction = nextcord.Interaction()
+#         while True:
+#             start_recording(interaction)
+#             await asyncio.sleep(5)
 
 # connect command
 @bot.slash_command(
@@ -78,11 +78,11 @@ async def connect(interaction: nextcord.Interaction, channel: Optional[Union[nex
 
 
 # start recording command
-# @bot.slash_command(
-#     description="Start recording in the connected voice channel.",
-#     dm_permission=False,
-#     default_member_permissions=8,  # admins only
-# )
+@bot.slash_command(
+    description="Start recording in the connected voice channel.",
+    dm_permission=False,
+    default_member_permissions=8,  # admins only
+)
 async def start_recording(interaction: nextcord.Interaction):
     assert interaction.guild
     assert isinstance(interaction.user, nextcord.Member)
@@ -109,11 +109,11 @@ async def start_recording(interaction: nextcord.Interaction):
 # )
 
 # stop recording command
-# @bot.slash_command(
-#     description="Stop recording in the connected voice channel.",
-#     dm_permission=False,
-#     default_member_permissions=8,  # admins only
-# )
+@bot.slash_command(
+    description="Stop recording in the connected voice channel.",
+    dm_permission=False,
+    default_member_permissions=8,  # admins only
+)
 async def stop_recording(
     interaction: nextcord.Interaction,
     export_format: str = "WAV",

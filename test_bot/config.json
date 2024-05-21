@@ -1,6 +1,10 @@
 {
-    "discordToken": "MTI0MjAyNDI3MTQ1MTI2MzAwNg.GATPx5.eWuMtJgO_oyw7hiNejV7Oq4JiJUZa1XuxMBiCk",
+    "discordToken": "MTI0MjQzMzk3NzIzMTYwOTk1Nw.GxWXHk.SPLV5f2zO2iesOKi55-O0_Al8qmxql-hH_4r_g",
+    "discordDevID": "1242433977231609957",
     "commandPrefix": "!",
-    "spotifyClientID": "YOUR_SPOTIFY_CLIENT_ID",
-    "spotifyClientSecret": "YOUR_SPOTIFY_CLIENT_SECRET"
+    "spotifyClientID": "",
+    "spotifyClientSecret": "",
+    "statusActivity": "status.",
+    "statusURL": "https://www.twitch.tv/twitch",
+    "statusType": "STREAMING"
 }

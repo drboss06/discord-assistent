@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "ffmpeg-static": "^5.2.0",
+    "js-video-url-parser": "^0.5.1",
+    "libsodium-wrappers": "^0.7.13",
+    "replace-ext": "^2.0.0",
+    "spotify-uri": "^4.0.1",
+    "spotify-web-api-node": "^5.0.2",
+    "string-similarity": "^4.0.4",
+    "tweetnacl": "^1.0.3",
+    "wav": "^1.0.2",
+    "words-to-numbers": "^1.5.1",
+    "ytdl-core": "^4.11.5",
+    "ytfps": "^1.1.0",
+    "ytsr": "^3.8.4"
+  }
+}
