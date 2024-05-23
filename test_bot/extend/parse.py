@@ -1,6 +1,6 @@
-# pip install thefuzz
 import re
 
+# pip install thefuzz
 from thefuzz import process
 
 music_alias = ["поставь музыку", "включи музыку", "вруби музыку", "ёбни на пол карасика",
@@ -21,28 +21,41 @@ def strip_command(key: str, text: str) -> None | str:
     return None
 
 
-def parse_command(text) -> (str, str):
-    text.find(prefix)
-    if text.find(prefix) == -1:
+def parse_command(text: str) -> (str, str):
+    """Parses a command from the given text.
+
+    Returns:
+        tuple: A tuple containing the command type (str) and the command parameters (str).
+               If the text does not start with the prefix or if no command is found,
+               returns (None, None)."""
+
+    if text[:len(prefix)] != prefix:
         return None, None
-    text = text[text.find(prefix) + len(prefix):]
+    text = text[len(prefix):]
+
+    # pr_index = text.find(prefix)
+    # if pr_index == -1:
+    #     return None, None
+    # text = text[pr_index + len(prefix):]
+
     text = text.lower()
-    for type, aliases in commands:
+    for c_type, aliases in commands:
         key_word, score = process.extractOne(text, aliases) or ("", 0)
         if score >= 75:
             res = strip_command(key_word, text)
             if res is not None:
-                return type, res
+                return c_type, res
 
     return "gpt", text
 
 
 if __name__ == '__main__':
-    test = ["поставь музыку", "тест тест говорю говорю",
-            "hui",
-            "поставь музыку мейби бейби",
-            "Алё бля ВключЭ мейбибейби",
-            "ёбни на пол карасика мейби бейби",
-            "поставь слиппинг поудер гориллаз"]
+    test = ["френд поставь музыку", "тест тест говорю говорю",
+            "френд hui",
+            "френд поставь музыку мейби бейби",
+            "алё френд Алё бля ВключЭ мейбибейби",
+            "френд Алё бля ВключЭ мейбибейби",
+            "френд ёбни на пол карасика мейби бейби",
+            "френд поставь слиппинг поудер гориллаз"]
     for i, v in enumerate(test, 1):
-        print(parse_command(v), v)
+        print(f"{i}.", v, parse_command(v))
